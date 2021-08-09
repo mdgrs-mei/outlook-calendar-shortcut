@@ -153,6 +153,19 @@ class OutlookCalendar
         return $items.Restrict($query)
     }
 
+    [void] CreateNewAppointment()
+    {
+        if (-not $this.IsFolderValid())
+        {
+            return
+        }
+
+        $olAppointmentItem = 1
+        $item = $this.folder.Items.Add($olAppointmentItem)
+        $item.Display()
+        FocusApp "outlook.exe"
+    }
+
     [void] Focus([CalendarViewMode]$viewMode)
     {
         if (-not $this.IsFolderValid())

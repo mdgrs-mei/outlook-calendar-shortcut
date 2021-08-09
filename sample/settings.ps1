@@ -44,5 +44,10 @@ $settings = @{
             iconPath = "..\icons\month.png"
             clickAction = "FocusOnThisMonth"
         }
+        ,@{
+            description = "New"
+            iconPath = "..\icons\new_appointment.png"
+            clickAction = "CreateNewAppointment"
+        }
     )
 }

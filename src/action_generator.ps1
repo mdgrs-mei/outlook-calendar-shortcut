@@ -22,6 +22,10 @@ class ActionGenerator
             "FocusOnThisMonth" = {
                 $calendar.Focus([CalendarViewMode]::Month)
             }.GetNewClosure()
+
+            "CreateNewAppointment" = {
+                $calendar.CreateNewAppointment()
+            }.GetNewClosure()
         }
     }
 
