@@ -68,6 +68,11 @@ class Window
         $this.onClicked = $block
     }
 
+    [void] SetTaskbarItemInfoDescription($text)
+    {
+        $this.window.TaskbarItemInfo.Description = $text
+    }
+
     [Object] AddThumbButton($thumbButtonSetting)
     {
         $button = New-Object System.Windows.Shell.ThumbButtonInfo

@@ -153,6 +153,18 @@ class OutlookCalendar
         return $items.Restrict($query)
     }
 
+    [String] GetTodaysRemainingItemsSummary()
+    {
+        $summary = ""
+        $items = $this.GetTodaysRemainingItems()
+        foreach ($item in $items)
+        {
+            $itemStr = "{0,2:00}:{1,2:00}-{2,2:00}:{3,2:00} {4}`n" -f $item.Start.Hour, $item.Start.Minute, $item.End.Hour, $item.End.Minute, $item.Subject
+            $summary += $itemStr
+        }
+        return $summary
+    }
+
     [void] CreateNewAppointment()
     {
         if (-not $this.IsFolderValid())
