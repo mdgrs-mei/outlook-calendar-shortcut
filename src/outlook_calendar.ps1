@@ -207,21 +207,6 @@ class OutlookCalendar
             $calendarModule = $explorer.NavigationPane.Modules.GetNavigationModule(1)  # 1:olModuleCalendar
             $explorer.NavigationPane.CurrentModule = $calendarModule
 
-            foreach ($group in $calendarModule.NavigationGroups)
-            {
-                foreach ($navigationFolder in $group.NavigationFolders)
-                {
-                    if ($navigationFolder.Folder.FolderPath -eq $this.folderPath)
-                    {
-                        $navigationFolder.IsSelected = $true
-                    }
-                    else
-                    {
-                        $navigationFolder.IsSelected = $false
-                    }
-                }
-            }
-
             $view = $explorer.CurrentView
             # ViewType 2:calendar
             if (($view.ViewType -eq 2) -and ($viewMode -ne [CalendarViewMode]::Default))
