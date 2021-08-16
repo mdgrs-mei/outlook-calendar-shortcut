@@ -204,12 +204,14 @@ class OutlookCalendar
                 return
             }
 
-            $calendarModule = $explorer.NavigationPane.Modules.GetNavigationModule(1)  # 1:olModuleCalendar
+            $olModuleCalendar = 1
+            $olCalendarView = 2
+
+            $calendarModule = $explorer.NavigationPane.Modules.GetNavigationModule($olModuleCalendar)
             $explorer.NavigationPane.CurrentModule = $calendarModule
 
             $view = $explorer.CurrentView
-            # ViewType 2:calendar
-            if (($view.ViewType -eq 2) -and ($viewMode -ne [CalendarViewMode]::Default))
+            if (($view.ViewType -eq $olCalendarView) -and ($viewMode -ne [CalendarViewMode]::Default))
             {
                 $view.CalendarViewMode = [int]$viewMode
                 $view.Save()
