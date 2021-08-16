@@ -185,25 +185,25 @@ class OutlookCalendar
             return
         }
 
-        $explorer = $this.outlook.ActiveExplorer()
-        if (-not $explorer)
-        {
-            $olFolderInbox = 6
-            $inbox = $this.namespace.GetDefaultFolder($olFolderInbox)
-            if ($inbox)
-            {
-                $inbox.Display()
-            }
-            $explorer = $this.outlook.ActiveExplorer()
-        }
-
-        if (-not $explorer)
-        {
-            return
-        }
-
         try
         {
+            $explorer = $this.outlook.ActiveExplorer()
+            if (-not $explorer)
+            {
+                $olFolderInbox = 6
+                $inbox = $this.namespace.GetDefaultFolder($olFolderInbox)
+                if ($inbox)
+                {
+                    $inbox.Display()
+                }
+                $explorer = $this.outlook.ActiveExplorer()
+            }
+
+            if (-not $explorer)
+            {
+                return
+            }
+
             $calendarModule = $explorer.NavigationPane.Modules.GetNavigationModule(1)  # 1:olModuleCalendar
             $explorer.NavigationPane.CurrentModule = $calendarModule
 
