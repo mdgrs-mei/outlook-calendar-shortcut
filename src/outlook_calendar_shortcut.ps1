@@ -17,7 +17,7 @@ SetSettingsDirectory $settings $settingsPath
 $calendar = [OutlookCalendar]::new()
 $calendar.Init($settings.outlook.folderPath)
 
-$windowTitle = "Calendar"
+$windowTitle = "Outlook Calendar"
 $window = [Window]::new()
 $window.Init(".\window.xaml", $windowTitle, $settings)
 
