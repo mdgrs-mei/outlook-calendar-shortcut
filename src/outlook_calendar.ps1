@@ -215,6 +215,8 @@ class OutlookCalendar
                 $view.Save()
             }
 
+            # Activate the explorer first to ensure that FocusApp focuses on the explorer's window.
+            $explorer.Activate()
             FocusApp "outlook.exe"
         }
         catch 
