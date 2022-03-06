@@ -37,9 +37,14 @@ foreach ($thumbButtonSetting in $settings.thumbButtons)
 function TimerFunction()
 {
     $calendar.InitOutlookIfNotValid()
-    
-    $eventsSummary = $calendar.GetTodaysRemainingItemsSummary()
-    $window.SetTaskbarItemInfoDescription($eventsSummary)
+
+    if ($settings.todaysRemainingItemsSummary.enable)
+    {    
+        $eventsSummary = $calendar.GetTodaysRemainingItemsSummary(
+            $settings.todaysRemainingItemsSummary.maxItemCount,
+            $settings.todaysRemainingItemsSummary.maxItemCharacterCount)
+        $window.SetTaskbarItemInfoDescription($eventsSummary)
+    }
 
     if ($settings.overlayIcon.enable)
     {

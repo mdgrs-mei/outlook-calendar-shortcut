@@ -153,14 +153,25 @@ class OutlookCalendar
         return $items.Restrict($query)
     }
 
-    [String] GetTodaysRemainingItemsSummary()
+    [String] GetTodaysRemainingItemsSummary($maxItemCount, $maxItemCharacterCount)
     {
         $summary = ""
         $items = $this.GetTodaysRemainingItems()
+        $count = 0
         foreach ($item in $items)
         {
+            if ($count -eq $maxItemCount)
+            {
+                $summary += "..."
+                break
+            }
             $itemStr = "{0,2:00}:{1,2:00}-{2,2:00}:{3,2:00} {4}`n" -f $item.Start.Hour, $item.Start.Minute, $item.End.Hour, $item.End.Minute, $item.Subject
+            if ($itemStr.Length -gt $maxItemCharacterCount)
+            {
+                $itemStr = $itemStr.SubString(0, $maxItemCharacterCount) + "...`n"
+            }
             $summary += $itemStr
+            ++$count
         }
         return $summary
     }
