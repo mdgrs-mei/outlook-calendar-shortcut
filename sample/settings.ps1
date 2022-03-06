@@ -24,6 +24,13 @@ $settings = @{
         textColor = "White"
     }
 
+    # Show a summary of today's remaining items during a mouse over.
+    todaysRemainingItemsSummary = @{
+        enable = $true              # Set $true or $false to toggle this feature.
+        maxItemCount = 6
+        maxItemCharacterCount = 32
+    }
+
     clickAction = "FocusOnCalendar"
 
     # Thumb buttons

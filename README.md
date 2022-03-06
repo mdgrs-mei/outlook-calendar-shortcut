@@ -52,6 +52,18 @@ overlayIcon = @{
 You can turn on/off the overlay badge feature by setting `enable` to `$true`/`$false`. You can also change the badge color. Available WPF color names are listed here:
 https://docs.microsoft.com/en-us/dotnet/api/system.windows.media.colors?view=net-5.0
 
+## Today's items summary
+
+``` powershell
+todaysRemainingItemsSummary = @{
+    enable = $true
+    maxItemCount = 6
+    maxItemCharacterCount = 32
+}
+```
+
+The summary of today's remaining events is displayed on top of the thumbnail window.
+
 ## Click action
 
 ``` powershell
