@@ -58,6 +58,8 @@ https://docs.microsoft.com/en-us/dotnet/api/system.windows.media.colors?view=net
 
 ## Today's items summary
 
+![items_summary](./docs/items_summary.png)
+
 ``` powershell
 todaysRemainingItemsSummary = @{
     enable = $true
