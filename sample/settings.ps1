@@ -47,6 +47,11 @@ $settings = @{
             clickAction = @("FocusOnThisWeek")
         }
         ,@{
+            description = "14 Days"
+            iconPath = "..\icons\ndays.png"
+            clickAction = @("FocusOnNextNDays", 14)
+        }
+        ,@{
             description = "Month"
             iconPath = "..\icons\month.png"
             clickAction = @("FocusOnThisMonth")
