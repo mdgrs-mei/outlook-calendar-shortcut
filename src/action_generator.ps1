@@ -19,6 +19,10 @@ class ActionGenerator
                 $calendar.Focus([CalendarViewMode]::Week, $null)
             }.GetNewClosure()
 
+            "FocusOnThisWorkWeek" = {
+                $calendar.Focus([CalendarViewMode]::WorkWeek, $null)
+            }.GetNewClosure()
+
             "FocusOnNextNDays" = {
                 param($days)
                 $calendar.Focus([CalendarViewMode]::MultiDay, $days)
