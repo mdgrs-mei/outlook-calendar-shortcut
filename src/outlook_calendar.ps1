@@ -225,6 +225,8 @@ class OutlookCalendar
             $view = $explorer.CurrentView
             if (($view.ViewType -eq $olCalendarView) -and ($viewMode -ne [CalendarViewMode]::Default))
             {
+                $now = Get-Date
+                $view.GoToDate($now)
                 $view.CalendarViewMode = [int]$viewMode
                 if ($viewMode -eq [CalendarViewMode]::MultiDay)
                 {
