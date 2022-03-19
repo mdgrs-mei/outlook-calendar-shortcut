@@ -13,7 +13,7 @@ Outlook Calendar Shortcut is a Windows taskbar application that works as a short
 - Quick access to the Day, Week and Month views with Thumb buttons
 
 ## Requirements
-- Tested on Windows 10 and Powershell 5.1
+- Tested on Windows 10/11 and Powershell 5.1
 - Outlook desktop app needs to be installed
 
 ## Installation
@@ -47,6 +47,8 @@ An icon file used for the title bar. The image is converted to `.ico` file durin
 ``` powershell
 overlayIcon = @{
     enable = $true
+    size = 20.0
+    lineWidth = 1.0  
     backgroundColor = "DeepPink"
     textColor = "White"
 }
