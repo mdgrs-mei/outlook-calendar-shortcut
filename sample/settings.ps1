@@ -31,7 +31,7 @@ $settings = @{
         maxItemCharacterCount = 32
     }
 
-    clickAction = "FocusOnCalendar"
+    clickAction = @("FocusOnCalendar")
 
     # Thumb buttons
     # You can add max 7 buttons.
@@ -39,22 +39,22 @@ $settings = @{
         ,@{
             description = "Today"
             iconPath = "..\icons\day.png"
-            clickAction = "FocusOnToday"
+            clickAction = @("FocusOnToday")
         }
         ,@{
             description = "Week"
             iconPath = "..\icons\week.png"
-            clickAction = "FocusOnThisWeek"
+            clickAction = @("FocusOnThisWeek")
         }
         ,@{
             description = "Month"
             iconPath = "..\icons\month.png"
-            clickAction = "FocusOnThisMonth"
+            clickAction = @("FocusOnThisMonth")
         }
         ,@{
             description = "New"
             iconPath = "..\icons\new_appointment.png"
-            clickAction = "CreateNewAppointment"
+            clickAction = @("CreateNewAppointment")
         }
     )
 }

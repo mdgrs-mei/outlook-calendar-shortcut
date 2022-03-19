@@ -20,7 +20,8 @@ class ActionGenerator
             }.GetNewClosure()
 
             "FocusOnNextNDays" = {
-                $calendar.Focus([CalendarViewMode]::MultiDay, 12)
+                param($days)
+                $calendar.Focus([CalendarViewMode]::MultiDay, $days)
             }.GetNewClosure()
 
             "FocusOnThisMonth" = {
@@ -37,26 +38,29 @@ class ActionGenerator
     {
     }
 
-    [Object] CreateAction($name)
+    [Object] CreateAction($action)
     {
         $class = $this
 
         $block = {
-            $class.ExecuteAction($name)
+            $class.ExecuteAction($action)
         }.GetNewClosure()
 
         return $block
     }
 
-    [void] ExecuteAction($name)
+    [void] ExecuteAction($action)
     {
         try
         {
-            Write-Host ("Action: {0}" -f $name)
-            $block = $this.actionTable[$name]
+            $actionName = $action[0]
+            $actionArgs = $action[1..($action.Count-1)]
+
+            Write-Host ("Action: {0}" -f $actionName)
+            $block = $this.actionTable[$actionName]
             if ($block)
             {
-                $block.Invoke()
+                Invoke-Command $block -ArgumentList $actionArgs
             }
         }
         catch
