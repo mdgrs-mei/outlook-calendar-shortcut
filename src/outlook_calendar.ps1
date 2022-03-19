@@ -5,6 +5,7 @@ enum CalendarViewMode
     Day = 0
     Week = 1
     Month = 2
+    MultiDay = 3
     WorkWeek = 4
     Default = 255
 }
@@ -189,7 +190,7 @@ class OutlookCalendar
         FocusApp "outlook.exe"
     }
 
-    [void] Focus([CalendarViewMode]$viewMode)
+    [void] Focus([CalendarViewMode]$viewMode, $multiDayDays)
     {
         if (-not $this.IsFolderValid())
         {
@@ -225,6 +226,10 @@ class OutlookCalendar
             if (($view.ViewType -eq $olCalendarView) -and ($viewMode -ne [CalendarViewMode]::Default))
             {
                 $view.CalendarViewMode = [int]$viewMode
+                if ($viewMode -eq [CalendarViewMode]::MultiDay)
+                {
+                    $view.DaysInMultiDayMode = $multiDayDays
+                }
                 $view.Save()
             }
 

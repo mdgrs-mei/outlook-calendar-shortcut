@@ -8,19 +8,23 @@ class ActionGenerator
     {
         $this.actionTable = @{
             "FocusOnCalendar" = {
-                $calendar.Focus([CalendarViewMode]::Default)
+                $calendar.Focus([CalendarViewMode]::Default, $null)
             }.GetNewClosure()
 
             "FocusOnToday" = {
-                $calendar.Focus([CalendarViewMode]::Day)
+                $calendar.Focus([CalendarViewMode]::Day, $null)
             }.GetNewClosure()
 
             "FocusOnThisWeek" = {
-                $calendar.Focus([CalendarViewMode]::Week)
+                $calendar.Focus([CalendarViewMode]::Week, $null)
+            }.GetNewClosure()
+
+            "FocusOnNextNDays" = {
+                $calendar.Focus([CalendarViewMode]::MultiDay, 12)
             }.GetNewClosure()
 
             "FocusOnThisMonth" = {
-                $calendar.Focus([CalendarViewMode]::Month)
+                $calendar.Focus([CalendarViewMode]::Month, $null)
             }.GetNewClosure()
 
             "CreateNewAppointment" = {
