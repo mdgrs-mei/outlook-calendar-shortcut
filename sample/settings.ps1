@@ -14,12 +14,12 @@ $settings = @{
     updateIntervalInSeconds = 3
 
     # Overlay badge icon settings
+    # Available WPF color names are listed here:
+    # https://docs.microsoft.com/en-us/dotnet/api/system.windows.media.colors?view=net-5.0
     overlayIcon = @{
-        # $true or $false.
-        enable = $true
-
-        # Available WPF color names are listed here:
-        # https://docs.microsoft.com/en-us/dotnet/api/system.windows.media.colors?view=net-5.0
+        enable = $true          # $true or $false.
+        size = 20.0
+        lineWidth = 1.0    
         backgroundColor = "LightCoral"
         textColor = "White"
     }

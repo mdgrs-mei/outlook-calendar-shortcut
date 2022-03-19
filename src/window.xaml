@@ -15,10 +15,10 @@ WindowStyle="None">
     </Window.TaskbarItemInfo>
     <Window.Resources>
         <DataTemplate x:Key="OverlayIcon">
-            <Grid Width="20" Height="20">
+            <Grid Width="{Binding IconSize}" Height="{Binding IconSize}">
                 <Rectangle Fill="{Binding Color}"
                             Stroke="{Binding TextColor}"
-                            StrokeThickness="1"
+                            StrokeThickness="{Binding LineWidth}"
                             RadiusX="4"
                             RadiusY="4"/>
     
@@ -27,8 +27,8 @@ WindowStyle="None">
                             VerticalAlignment="Center"
                             Foreground="{Binding TextColor}"
                             FontWeight="Bold"
-                            Height="20"
-                            FontSize="14">
+                            Height="{Binding IconSize}"
+                            FontSize="{Binding FontSize}">
                 </TextBlock>
             </Grid>
         </DataTemplate>
