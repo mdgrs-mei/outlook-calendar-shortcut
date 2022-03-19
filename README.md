@@ -47,7 +47,6 @@ An icon file used for the title bar. The image is converted to `.ico` file durin
 ``` powershell
 overlayIcon = @{
     enable = $true
-
     backgroundColor = "DeepPink"
     textColor = "White"
 }
@@ -73,7 +72,7 @@ The summary of today's remaining events is displayed on top of the thumbnail win
 ## Click action
 
 ``` powershell
-clickAction = "FocusOnCalendar"
+clickAction = @("FocusOnCalendar")
 ```
 
 When the taskbar icon is clicked, the action you specify here is executed. The following actions are available:
@@ -83,7 +82,9 @@ When the taskbar icon is clicked, the action you specify here is executed. The f
 |FocusOnCalendar|Opens the calendar view in Outlook keeping the previous view mode.|
 |FocusOnToday|Opens the calendar view in Outlook and sets the view mode to Day.|
 |FocusOnThisWeek|Opens the calendar view in Outlook and sets the view mode to Week.|
+|FocusOnThisWorkWeek|Opens the calendar view in Outlook and sets the view mode to WorkWeek.|
 |FocusOnThisMonth|Opens the calendar view in Outlook and sets the view mode to Month.|
+|FocusOnNextNDays|Opens the calendar view in Outlook and sets the range to the number of the days specified by the second argument.|
 |CreateNewAppointment|Opens a dialog to create a new appointment.|
 
 ## Thumb buttons
@@ -95,7 +96,7 @@ thumbButtons = @(
     ,@{
             description = "Month"
             iconPath = "..\icons\month.png"
-            clickAction = "FocusOnThisMonth"
+            clickAction = @("FocusOnThisMonth")
     }
 )
 ```
