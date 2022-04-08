@@ -187,7 +187,7 @@ class OutlookCalendar
         $olAppointmentItem = 1
         $item = $this.folder.Items.Add($olAppointmentItem)
         $item.Display()
-        FocusApp "outlook.exe"
+        FocusApp "outlook"
     }
 
     [void] Focus([CalendarViewMode]$viewMode, $multiDayDays)
@@ -237,7 +237,7 @@ class OutlookCalendar
 
             # Activate the explorer first to ensure that FocusApp focuses on the explorer's window.
             $explorer.Activate()
-            FocusApp "outlook.exe"
+            FocusApp "outlook"
         }
         catch 
         {

@@ -7,9 +7,9 @@ Add-Type -AssemblyName Microsoft.VisualBasic
 Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName UIAutomationClient
 
-function FocusApp($appName)
+function FocusApp($processName)
 {
-    $p = GetRootProcess $appName
+    $p = GetMainProcess $processName
     if ($p)
     {
         FocusProcess $p
@@ -21,10 +21,9 @@ function FocusApp($appName)
     }
 }
 
-function GetRootProcess($appName)
+function GetMainProcess($processName)
 {
-    $childCount = @{}
-    $processes = Get-CimInstance -class win32_process -filter "Name = '$appName'"
+    $processes = @(Get-Process -Name $processName)
     if (-not $processes)
     {
         return
@@ -32,26 +31,13 @@ function GetRootProcess($appName)
 
     foreach ($process in $processes)
     {
-        $parent = $process.ParentProcessId
-        if ($childCount.ContainsKey($parent))
+        if ($process.MainWindowHandle -ne 0)
         {
-            $childCount[$parent] += 1
-        }
-        else
-        {
-            $childCount[$parent] = 1
+            return $process
         }
     }
-    $maxChildCount = 0
-    $rootProcess = $processes[0]
-    foreach ($process in $processes)
-    {
-        if ($childCount[$process] -gt $maxChildCount)
-        {
-            $rootProcess = $process
-        }
-    }
-    Get-Process -Id $rootProcess.ProcessId
+
+    return $processes[0]
 }
 
 function FocusProcess($process)
@@ -60,7 +46,6 @@ function FocusProcess($process)
     if ($state -eq "")
     {
         # The process has no window
-        ActivateProcess $process
         return
     }
 
