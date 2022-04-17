@@ -71,6 +71,19 @@ todaysRemainingItemsSummary = @{
 
 The summary of today's remaining events is displayed on top of the thumbnail window.
 
+## Progress indicator
+
+![progress_indicator](./docs/progress_indicator.png)
+
+``` powershell
+progressIndicator = @{
+    enable = $true
+    showProgressMinutesBefore = 30
+}
+```
+
+When the next event is close, it is indicated by a progress indicator. The icon starts showing the progress indicator the minitues before the next event that is specified by `showProgressMinutesBefore`. When you are in the event, the bar is displayed in red.
+
 ## Click action
 
 ``` powershell
