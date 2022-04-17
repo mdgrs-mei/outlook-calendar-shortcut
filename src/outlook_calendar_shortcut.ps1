@@ -1,7 +1,8 @@
 ﻿Add-Type -AssemblyName PresentationFramework
 
-$scriptDir = Split-Path $MyInvocation.MyCommand.Path -Parent
-Set-Location $scriptDir
+$scriptPath = $MyInvocation.MyCommand.Path
+$srcDir = Split-Path $scriptPath -Parent
+Set-Location $srcDir
 
 . .\settings_helper.ps1
 . .\process.ps1
@@ -11,8 +12,7 @@ Set-Location $scriptDir
 . .\action_generator.ps1
 
 $settingsPath = $args[0]
-. $settingsPath
-SetSettingsDirectory $settings $settingsPath
+$settings = InitSettings $settingsPath $scriptPath
 
 $calendar = [OutlookCalendar]::new()
 $calendar.Init($settings.outlook.folderPath)
@@ -20,6 +20,10 @@ $calendar.Init($settings.outlook.folderPath)
 $windowTitle = "Outlook Calendar"
 $window = [Window]::new()
 $window.Init(".\window.xaml", $windowTitle, $settings)
+if (-not ($args -Contains "-SkipJumpList"))
+{
+    $window.InitJumpList()
+}
 
 $actionGenerator = [ActionGenerator]::new()
 $actionGenerator.Init($calendar)
