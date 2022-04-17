@@ -100,6 +100,7 @@ When the taskbar icon is clicked, the action you specify here is executed. The f
 |FocusOnThisWorkWeek|Opens the calendar view in Outlook and sets the view mode to WorkWeek.|
 |FocusOnThisMonth|Opens the calendar view in Outlook and sets the view mode to Month.|
 |FocusOnNextNDays|Opens the calendar view in Outlook and sets the range to the number of the days specified by the second argument. The number can be set to a value between 2 and 14.|
+|OpenTodaysNextItem|Opens today's next item.|
 |CreateNewAppointment|Opens a dialog to create a new appointment.|
 
 ## Thumb buttons
