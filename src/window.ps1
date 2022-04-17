@@ -108,6 +108,24 @@ class Window
         return $button
     }
 
+    [void] SetProgressIndicator($progress)
+    {
+        if ($progress -le 0)
+        {
+            $state = [System.Windows.Shell.TaskbarItemProgressState]::None
+        }
+        elseif ($progress -ge 1)
+        {
+            $state = [System.Windows.Shell.TaskbarItemProgressState]::Error
+        }
+        else
+        {
+            $state = [System.Windows.Shell.TaskbarItemProgressState]::Normal
+        }
+        $this.window.TaskbarItemInfo.ProgressState = $state
+        $this.window.TaskbarItemInfo.ProgressValue = $progress
+    }
+
     [void] ShowDialog()
     {
         $this.window.ShowDialog()
