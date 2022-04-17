@@ -177,6 +177,17 @@ class OutlookCalendar
         return $summary
     }
 
+    [Object] GetTodaysNextItem()
+    {
+        $items = $this.GetTodaysRemainingItems()
+        if (-not $items)
+        {
+            return $null
+        }
+
+        return $items[1]
+    }
+
     [void] CreateNewAppointment()
     {
         if (-not $this.IsFolderValid())

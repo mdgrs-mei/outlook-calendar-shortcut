@@ -31,6 +31,12 @@ $settings = @{
         maxItemCharacterCount = 32
     }
 
+    # Show how close it is to the next event with a progress indicator.
+    progressIndicator = @{
+        enable = $true
+        showProgressMinutesBefore = 30  # Starts showing progress this minutes before the event
+    }
+
     clickAction = @("FocusOnCalendar")
 
     # Thumb buttons

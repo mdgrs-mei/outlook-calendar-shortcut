@@ -55,6 +55,23 @@ function TimerFunction()
         $count = $calendar.GetTodaysRemainingItemCount()
         $window.UpdateOverlayCount($count)
     }
+
+    if ($settings.progressIndicator.enable)
+    {
+        $nextItem = $calendar.GetTodaysNextItem()
+        if ($nextItem)
+        {
+            $duration = $settings.progressIndicator.showProgressMinutesBefore
+            $now = Get-Date
+            $minutesLeft = ($nextItem.Start - $now).TotalMinutes
+            $progress = ($duration - $minutesLeft) / $duration
+            $window.SetProgressIndicator($progress)
+        }
+        else
+        {
+            $window.SetProgressIndicator(0)
+        }
+    }
 }
 
 TimerFunction
