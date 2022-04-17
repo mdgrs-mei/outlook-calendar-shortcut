@@ -57,6 +57,7 @@ function TimerFunction()
     }
 }
 
+TimerFunction
 $window.StartTimerFunction({TimerFunction}, $settings.updateIntervalInSeconds)
 $window.ShowDialog()
 $window.Term()
