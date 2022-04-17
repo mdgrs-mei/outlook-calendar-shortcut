@@ -32,6 +32,10 @@ class ActionGenerator
                 $calendar.Focus([CalendarViewMode]::Month, $null)
             }.GetNewClosure()
 
+            "OpenTodaysNextItem" = {
+                $calendar.OpenTodaysNextItem()
+            }.GetNewClosure()
+
             "CreateNewAppointment" = {
                 $calendar.CreateNewAppointment()
             }.GetNewClosure()

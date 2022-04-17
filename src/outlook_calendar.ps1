@@ -188,6 +188,18 @@ class OutlookCalendar
         return $items[1]
     }
 
+    [void] OpenTodaysNextItem()
+    {
+        $item = $this.GetTodaysNextItem()
+        if (-not $item)
+        {
+            return
+        }
+
+        $item.Display()
+        FocusApp "outlook"
+    }
+
     [void] CreateNewAppointment()
     {
         if (-not $this.IsFolderValid())
