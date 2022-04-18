@@ -110,13 +110,14 @@ class Window
 
     [void] SetProgressIndicator($progress)
     {
-        if ($progress -le 0)
+        $progress = [Math]::Max([Math]::Min($progress, 1), 0)
+        if ($progress -eq 0)
         {
             $state = [System.Windows.Shell.TaskbarItemProgressState]::None
         }
-        elseif ($progress -ge 1)
+        elseif ($progress -eq 1)
         {
-            $state = [System.Windows.Shell.TaskbarItemProgressState]::Error
+            $state = [System.Windows.Shell.TaskbarItemProgressState]::Paused
         }
         else
         {
