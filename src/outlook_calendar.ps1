@@ -213,6 +213,21 @@ class OutlookCalendar
         FocusApp "outlook"
     }
 
+    [void] CreateNewMeeting()
+    {
+        if (-not $this.IsFolderValid())
+        {
+            return
+        }
+
+        $olAppointmentItem = 1
+        $olMeeting = 1
+        $item = $this.folder.Items.Add($olAppointmentItem)
+        $item.MeetingStatus = $olMeeting
+        $item.Display()
+        FocusApp "outlook"
+    }
+
     [void] Focus([CalendarViewMode]$viewMode, $multiDayDays)
     {
         if (-not $this.IsFolderValid())

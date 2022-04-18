@@ -39,6 +39,10 @@ class ActionGenerator
             "CreateNewAppointment" = {
                 $calendar.CreateNewAppointment()
             }.GetNewClosure()
+
+            "CreateNewMeeting" = {
+                $calendar.CreateNewMeeting()
+            }.GetNewClosure()
         }
     }
 
