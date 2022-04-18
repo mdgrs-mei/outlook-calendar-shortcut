@@ -32,7 +32,7 @@ outlook = @{
     folderPath = "\\your-email-address@sample.com\calendar-folder-name"
 }
 ```
-`folderPath` is a path of the outlook calendar folder which the app monitors. You can list all of your calendar folder paths by running [`tools/list_outlook_calendar_folders.bat`](#toolslist_outlook_calendar_foldersbat).
+`folderPath` is a path of the outlook calendar folder that the app monitors. You can list all of your calendar folder paths by running [`tools/list_outlook_calendar_folders.bat`](#toolslist_outlook_calendar_foldersbat).
 
 ## Icon image
 
@@ -82,7 +82,7 @@ progressIndicator = @{
 }
 ```
 
-When the next event is close, it is indicated by a progress indicator. The icon starts showing the progress indicator the minitues before the next event that is specified by `showProgressMinutesBefore`. When you are in the event, the bar is displayed in red.
+When the next event is close, it is indicated by a progress indicator. The icon starts showing the progress indicator the minitues before the next event that is specified by `showProgressMinutesBefore`. When you are in the event, the bar is displayed in yellow.
 
 ## Click action
 
@@ -99,7 +99,7 @@ When the taskbar icon is clicked, the action you specify here is executed. The f
 |FocusOnThisWeek|Opens the calendar view in Outlook and sets the view mode to Week.|
 |FocusOnThisWorkWeek|Opens the calendar view in Outlook and sets the view mode to WorkWeek.|
 |FocusOnThisMonth|Opens the calendar view in Outlook and sets the view mode to Month.|
-|FocusOnNextNDays|Opens the calendar view in Outlook and sets the range to the number of the days specified by the second argument. The number can be set to a value between 2 and 14.|
+|FocusOnNextNDays|Opens the calendar view in Outlook and sets the range to the number of days specified by the second argument. The number can be set to a value between 2 and 14.|
 |OpenTodaysNextItem|Opens today's next item.|
 |CreateNewAppointment|Opens a dialog to create a new appointment.|
 |CreateNewMeeting|Opens a dialog to create a new meeting.|
@@ -123,11 +123,11 @@ You can add maximum 7 thumb buttons and assign actions performed when they are c
 
 ## [tools/list_outlook_calendar_folders.bat](./tools/list_outlook_calendar_folders.bat)
 
-Lists all the Outlook calendar folder paths which the app can monitor. Copy one of the folder paths and paste it in your settings file.
+Lists all the Outlook calendar folder paths that the app can monitor. Copy one of the folder paths and paste it in your settings file.
 
 ## [tools/create_shortcut.bat](./tools/create_shortcut.bat)
 
-This tool takes a settings file and creates a shortcut to run the app. If you want to create another app which monitors another Outlook calendar, you just need to create a settings file and run this tool again.
+This tool takes a settings file and creates a shortcut to run the app. If you want to create another app that monitors another Outlook calendar, you just need to create a settings file and run this tool again.
 
 ## [tools/convert_image_to_ico.bat](./tools/convert_image_to_ico.bat)
 
