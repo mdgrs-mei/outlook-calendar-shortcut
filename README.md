@@ -17,7 +17,7 @@ Outlook Calendar Shortcut is a Windows taskbar application that works as a short
 - Outlook desktop app needs to be installed
 
 ## Installation
-1. Download and extract the zip or clone this repository anywhere you like
+1. Download and extract the [zip](https://github.com/mdgrs-mei/outlook-calendar-shortcut/releases/latest/download/outlook-calendar-shortcut.zip) or clone this repository anywhere you like
 1. Copy and edit `settings.ps1` (See [Settings](#Settings))
 1. Run [`tools/create_shortcut.bat`](#toolscreate_shortcutbat) and save the shortcut
 1. Run the shortcut
