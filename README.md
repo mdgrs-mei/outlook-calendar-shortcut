@@ -1,6 +1,10 @@
 <div align="center">
 
 # Outlook Calendar Shortcut
+
+[![GitHub license](https://img.shields.io/github/license/mdgrs-mei/outlook-calendar-shortcut)](https://github.com/mdgrs-mei/outlook-calendar-shortcut/blob/main/LICENSE)
+![GitHub all releases](https://img.shields.io/github/downloads/mdgrs-mei/outlook-calendar-shortcut/total)
+
 Outlook Calendar Shortcut is a Windows taskbar application that works as a shortcut to Outlook's calendar view. It notifies you of today's remaining event count by an overlay badge. Clicking the taskbar icon leads you to the calendar view in Outlook.
 
 ![taskbar](./docs/taskbar.gif)
